@@ -1,0 +1,92 @@
+<div class="container">
+  <h2 style="text-align: center">Thêm mới hoạt động</h2>
+  <form [formGroup]="formCreate" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Mã hoạt động: </label>
+      <input type="number" class="form-control" formControlName="maHD">
+      <div *ngIf="maHD.invalid && (maHD.touched || maHD.dirty)" class="alert alert-danger">
+        <div *ngIf="maHD.errors?.required">
+          Mã hoạt động không được để trống
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Tên hoạt động: </label>
+      <input type="text" class="form-control" formControlName="tenHD">
+      <div *ngIf="tenHD.invalid && (tenHD.touched || tenHD.dirty)" class="alert alert-danger">
+        <div *ngIf="tenHD.errors?.required">
+          Tên hoạt động không được để trống
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Mô tả hoạt động: </label>
+      <textarea cols="10" rows="5" class="form-control" formControlName="moTaHD"></textarea>
+      <div *ngIf="moTaHD.invalid && (moTaHD.touched || moTaHD.dirty)" class="alert alert-danger">
+        <div *ngIf="moTaHD.errors?.required">
+          Mô tả hoạt động không được để trống
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Ngày bắt đầu</label>
+      <input type="date" formControlName="ngayGioBD" class="form-control">
+      <div *ngIf="ngayGioBD.invalid && (ngayGioBD.touched || ngayGioBD.dirty)" class="alert alert-danger">
+        <div *ngIf="ngayGioBD.errors?.required">
+          Ngày bắt đầu không được để trống
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Ngày kết thúc</label>
+      <input type="date" class="form-control" formControlName="ngayGioKT">
+      <div *ngIf="ngayGioKT.invalid && (ngayGioKT.touched || ngayGioKT.dirty)" class="alert alert-danger">
+        <div *ngIf="ngayGioKT.errors?.required">
+          Ngày kết thúc không được để trống
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Số lượng tối thiểu yêu cầu</label>
+      <input type="string" class="form-control" formControlName="slToiThieuYC">
+      <div
+        *ngIf="slToiThieuYC.invalid && (slToiThieuYC.touched || slToiThieuYC.dirty)"
+        class="alert alert-danger">
+        <div *ngIf="slToiThieuYC.errors.required">
+          Số lượng tối thiểu yêu cầu không được để trống
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Số lượng tối đa yêu cầu</label>
+      <input type="text" class="form-control" formControlName="slToiDaYC">
+      <div *ngIf="slToiDaYC.invalid && (slToiDaYC.touched || slToiDaYC.dirty)" class="alert alert-danger">
+        <div *ngIf="slToiDaYC.errors?.required">
+          Số lượng tối đa không được để trống
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Thời hạn đăng ký</label>
+      <input type="date" class="form-control" formControlName="thoiHanDK">
+      <div *ngIf="thoiHanDK.invalid && (thoiHanDK.touched || thoiHanDK.dirty)" class="alert alert-danger">
+        <div *ngIf="thoiHanDK.errors?.required">
+          Thời hạn đăng ký không được để trống
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Mã thành viên</label>
+      <input type="number" class="form-control" formControlName="maTV">
+      <div *ngIf="maTV.invalid && (maTV.touched || maTV.dirty)" class="alert alert-danger">
+        <div *ngIf="maTV.errors?.required">
+          Mã thành viên không được để trống
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3 text-center" [disabled]="formCreate.invalid">Thêm</button>
+    <a class="btn btn-primary mt-3 text-center" routerLink="" id="back">Quay về</a>
+  </form>
+
+</div>
